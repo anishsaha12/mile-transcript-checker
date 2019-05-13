@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <title>Audio Transcriber - Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="javascripts/login.js"></script>
+</head>
+
+<body class="waves">
+    <div class="container-fluid bg-1 text-center">
+        <h1>Audio Transcriber</h1>
+    </div>
+    <div class="center-helper">
+        <div class="container-fluid bg-2 text-center center-content-login">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="form-group row">
+                        <label class="control-label col-sm-4" for="Volunteer ID"
+                            style="font-size: 20px; font-weight:600;">User ID:</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input id="v_name" type="text" class="form-control" placeholder="Your volunteer ID"
+                                    style="font-size: 20px; font-weight:600;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-sm-4" for="Password"
+                            style="font-size: 20px; font-weight:600;">Password:</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input id="v_password" type="password" class="form-control" name="password"
+                                    placeholder="Password" style="font-size: 20px; font-weight:600;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="control-label col-sm-4" for="Select Language"
+                            style="font-size: 20px; font-weight:600;">Language:</label>
+                        <div class="col-sm-8">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-globe"></i></span>
+                                <select class="form-control" id="v_lang_id" style="font-size: 20px; font-weight:600;">
+                                    <option value="0">choose</option>
+                                    <option value="1">Tamil</option>
+                                    <option value="2">Telugu</option>
+                                    <option value="3">Kannada</option>
+                                    <option value="4">Malayalam</option>
+                                    <option value="5">Hindi</option>
+                                    <option value="6">Bengali</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <a href="#" id="submit" class="btn btn-info btn-lg">
+                        <span class="glyphicon glyphicon-log-in"></span> Login
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

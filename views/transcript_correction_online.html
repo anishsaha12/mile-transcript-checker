@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= language_name %> Transcriber</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css"  type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/mainTranscriber.js"></script>
+  </head>
+
+  <body>
+    <div class="container-fluid bg-1 text-center">
+        <h1><%= language_name %> Audio Transcriber</h1>
+        <a href="/user/logout" class="btn btn-default btn-sm">
+          <span class="glyphicon glyphicon-log-in"></span> Logout
+        </a>
+    </div>
+
+    <center>
+      <% let i=0; %>
+      <input type="hidden" id="audio_transcript_id" value="<%= audio_transcript_id[i] %>">  
+    <form>
+      <table>
+        <tr>
+          <td>User ID: <b><%= v_name %></b><input type="hidden" id="userId" size="10" value="<%= v_name %>"></td>
+          <td><p>Select a File:</p>
+              <table>
+                <% for(i=0; i < wav_file_name.length; i++) { %>
+                    <tr>
+                      <td><button onClick="loadFile('<%= audio_transcript_id[i] %>','<%= wav_file_name[i] %>', <%= edit_flag[i] %>)" type="button"><%= wav_file_name[i] %></button></td>
+                      <td><%= edit_flag[i] ? "Editted":"Unchecked" %></td>
+                    </tr>
+                <% } %>
+              </table>
+          </td>
+        </tr>  
+      </table>
+    </form>
+
+    <br><br>
+    <audio controls="controls" id="audio" style="width: 600px;">
+      <source id="audioSource" src="/transcripts/audio/<%= wav_file_name[0] %>" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <br> <br>
+
+    <p id="transEditted"><%= edit_flag[0] ? "Editted":"Unchecked" %></p>
+    <textarea  id="transText" rows="10" cols="120">
+    <%= trans_text[0] %>
+    </textarea>
+
+    <br>
+    <button onClick="saveTranscript()" type="button" id="saveTranscript">Save</button> &nbsp; &nbsp; <br> <br>
+
+    <p id="display_message"></p>
+
+    </center>
+  </body>
+</html>

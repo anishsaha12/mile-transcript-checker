@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title><%= language_name %> Transcriber</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="/javascripts/mainTranscriberLocal.js"></script>
+</head>
+
+<body class="waves">
+    <div class=" loading" id="wait">
+        <img src="/images/loading.gif" style="width:100px;height:100px;" alt="Loading">
+    </div>
+    <div class="container-fluid bg-1 text-center">
+        <h1><%= language_name %> Audio Transcriber</h1>
+        <a href="/user/logout" class="btn btn-default btn-sm">
+            <span class="glyphicon glyphicon-log-in"></span> Logout
+        </a>
+    </div>
+
+    <div class="container-fluid bg-3 text-center center-content">
+        <% let i=0; %>
+        <input type="hidden" id="audio_transcript_id" value="">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">User ID: <b><%= v_name %></b></div>
+
+            <div class="panel-body">
+                <input type="hidden" id="userId" size="10" value="<%= v_name %>">
+
+                <div class="container-fluid" style="padding-top:10px; padding-bottom:10px;">
+                    <div class="row ">
+                        <div class="col-sm-12">
+                            <b>Select all audio Files:</b>
+                            <input class="form-control" type="file" id="audio_files" multiple
+                                style="display:inline;  width: auto;">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row" style="display:none;">
+                        <div class="col-sm-12">
+                            <b>Load:</b>
+                            <select id="search_file" class="form-control" style="display:inline; width: auto;">
+                                <% for(i=0; i < wav_file_name.length; i++) { %>
+                                <!-- <button onClick="loadFile('<%= audio_transcript_id[i] %>','<%= wav_file_name[i] %>', <%= edit_flag[i] %>)" type="button"><%= wav_file_name[i] %></button> -->
+                                <option value="<%= wav_file_name[i]+','+edit_flag[i]+','+audio_transcript_id[i] %>">
+                                    <%= wav_file_name[i] %></option>
+                                <% } %>
+                            </select>
+                            <!-- <input type="button" id="search_btn" value="Load" class="form-control" style="display:inline; width: auto;"><span class="glyphicon glyphicon-download"></span> -->
+                            <button type="button" class="btn btn btn-sm" id="search_btn">
+                                <span class="glyphicon glyphicon-download"></span> Load
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <button type="button" class="previous" id="previous" style="position: relative;">
+                    <span style="position: absolute;top: 60px;left: 5%;">Previous</span>
+                </button>
+                <!-- <input type="button" id="previous" value="Previous" > -->
+                <audio controls="controls" id="audio" style="width:600px;"
+                    <source id="audioSource" type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                </audio>
+                <button type="button" class="next" id="next" style="position: relative;">
+                    <span style="position: absolute;top: 60px;left: 25%;">Next</span>
+                </button>
+                <!-- <input type="button" id="next" value="Next"> -->
+                <br>
+                <p id="audio_file_name" class="btn btn-primary">File Name</p>
+            </div>
+        </div>
+
+        <p id="transEditted" style="display:none;">Edit Status</p>
+        <textarea id="transText" rows="10" class="form-control"></textarea>
+
+        <br>
+        <button onClick="saveTranscript()" type="button" id="saveTranscript" class="btn btn-success">Save
+            Transcript</button> &nbsp; &nbsp; <br> <br>
+
+        <p id="display_message"></p>
+
+    </div>
+
+</body>
+
+</html>
