@@ -7,7 +7,13 @@ $(document).ready(function(){
     var loaded_audio_files=[];
     var options = document.getElementById("search_file").options;
     for(var j=0;j<options.length; j++){
-        volunteer_audio_files.push(options[j].value);
+        var opt_val = options[j].value;
+        if(opt_val.split(',')[1]=='0')
+            volunteer_audio_files.push(opt_val);
+    }
+
+    if(volunteer_audio_files.length==0){
+        alert("You have NO transcripts pending edit!!");
     }
 
 	$('#audio_files').on('change', function(e) {
@@ -133,7 +139,7 @@ function loadTxt(edit_flag, file_num){
 function loadFile(audio_transcript_id,wav_file, edit_flag) {
     // document.getElementById("transText").value = trans_text;
     document.getElementById("transEditted").innerHTML = edit_flag=="1" ? "Edited":"Unchecked";
-    document.getElementById("audio_file_name").innerHTML = wav_file;
+    document.getElementById("audio_file_name").innerHTML = "File Name: "+wav_file.split('.')[0];
     document.getElementById("audio_transcript_id").value = audio_transcript_id;
     
     loadTxt(edit_flag,wav_file.split('.')[0]);
@@ -162,7 +168,8 @@ function saveTranscript() {
                 // console.log(data);
                 // alert(data);
                 alert("Saved the text successfully");
-                location.reload();
+                // location.reload();
+                $('#next').click();
             }
         },
         error: function(xhr) { 

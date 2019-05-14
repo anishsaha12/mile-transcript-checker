@@ -70,7 +70,7 @@ exports.corrector_page_local = (req, res, next) => {
                     );
                 }
             }
-        );
+        ).sort({wav_file_name: 1});
 
     }else{
         // res.render('transcript_correction', obj);
@@ -146,7 +146,7 @@ exports.corrector_page_online = (req, res, next) => {
                     );
                 }
             }
-        );
+        ).sort({wav_file_name: 1});
 
     }else{
         // res.render('transcript_correction', obj);
