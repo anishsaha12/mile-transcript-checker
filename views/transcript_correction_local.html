@@ -37,7 +37,7 @@
                     <div class="row ">
                         <div class="col-sm-12">
                             <b>Select all audio Files:</b>
-                            <input class="form-control" type="file" accept=".txt" id="audio_files" multiple
+                            <input class="form-control" type="file" accept=".wav" id="audio_files" multiple
                                 style="display:inline;  width: auto;">
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                     <span style="position: absolute;top: 60px;left: 5%;">Previous</span>
                 </button>
                 <!-- <input type="button" id="previous" value="Previous" > -->
-                <audio controls="controls" id="audio" style="width:600px;"
+                <audio controls="controls" id="audio" style="width:800px;margin-top: 0px;"
                     <source id="audioSource" type="audio/mpeg" />
                     Your browser does not support the audio element.
                 </audio>
@@ -77,16 +77,16 @@
                 </button>
                 <!-- <input type="button" id="next" value="Next"> -->
                 <br>
-                <p id="audio_file_name" class="btn btn-primary">File Name</p>
+                <p id="audio_file_name" style="color: #b8b5b5;">File Name</p>
             </div>
         </div>
 
         <p id="transEditted" style="display:none;">Edit Status</p>
-        <textarea id="transText" rows="10" class="form-control"></textarea>
+        <textarea id="transText" rows="6" class="form-control" style="font-size: xx-large;"></textarea>
 
         <br>
         <button onClick="saveTranscript()" type="button" id="saveTranscript" class="btn btn-success">Save
-            Transcript</button> &nbsp; &nbsp; <br> <br>
+            Transcript and Proceed</button> &nbsp; &nbsp; <br> <br>
 
         <p id="display_message"></p>
 

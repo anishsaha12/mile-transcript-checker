@@ -4,8 +4,8 @@ body {
 }
 
 .waves {
-  background: url('/images/wave2.jpg');
-  background-size: contain;
+  background: url('/images/wave4.jpg');
+  background-size: cover;
   background-attachment: fixed
 }
 
@@ -49,7 +49,7 @@ body {
 }
 
 .center-content {
-  width: 70%;
+  width: fit-content;
   margin-top: 50px;
   margin-bottom: 100px;
   padding-left: 40px;
@@ -66,19 +66,23 @@ body {
   background: url('/images/back.png') no-repeat top left transparent;
   border: none;
   background-size: contain;
-  height: 60px;
+  height: 55px;
+  width: 55px;
   padding: 5px 5px;
   margin-right: 15px;
-  width: 60px;
+  margin-bottom: 30px;
+  margin-top: 0px;
 }
 .next{
-  background: url('/images/next.png');
+  background: url('/images/next.png') no-repeat top left transparent;
   border: none;
   background-size: contain;
-  height: 60px;
+  height: 55px;
+  width: 55px;
   padding: 5px 5px;
   margin-left: 15px;
-  width: 60px;
+  margin-bottom: 30px;
+  margin-top: 0px;
 }
 
 .loading{
