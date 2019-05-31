@@ -20,7 +20,8 @@ $(document).ready(function(){
 	  	files = document.getElementById("audio_files").files;
         i=-1;
         for(var j=0;j<files.length; j++){
-            loaded_audio_files.push(files[j].name);
+	    if(files[j].name.endsWith(".wav"))
+                loaded_audio_files.push(files[j].name);
         }        
 	});
 	$('#next').click(function(){
